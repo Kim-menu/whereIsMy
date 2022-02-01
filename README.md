@@ -1,16 +1,11 @@
 # where_is_my
 
-A new Flutter project.
+People usually forget where they did put their stuffs at home.
 
-## Getting Started
+I want to help them by using awesome app "whereIsMy".
 
-This project is a starting point for a Flutter application.
+## How
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. When you put stuffs anywhere, input data(place-item pair) in app.
+2. Later, if you forget where you did put stuff, input item's name in app.
+3. Then you can find it easily.

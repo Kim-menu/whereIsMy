@@ -25,17 +25,54 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          children: const [
-            SizedBox(
+          children: [
+            const SizedBox(
               height: 50.0,
             ),
-            Image(
+            const Image(
               image: AssetImage('assets/icon_home_page.png'),
               width: 120.0,
+            ),
+            const SizedBox(
+              height: 100.0,
+            ),
+            ElevatedButton(
+              onPressed: pressHandler,
+              child: const Text('Save (thing-place) pair',
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            ElevatedButton(
+              onPressed: pressHandler,
+              child: const Text('Find things',
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            ElevatedButton(
+              onPressed: pressHandler,
+              child: const Text('Watch my place',
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
             )
           ],
         ),
       ),
     );
+  }
+
+  void pressHandler() {
+    print('press!');
   }
 }

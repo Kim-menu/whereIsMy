@@ -25,54 +25,50 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          children: [
-            const SizedBox(
-              height: 50.0,
-            ),
-            const Image(
-              image: AssetImage('assets/icon_home_page.png'),
-              width: 120.0,
-            ),
-            const SizedBox(
-              height: 100.0,
-            ),
-            ElevatedButton(
-              onPressed: pressHandler,
-              child: const Text('Save (thing-place) pair',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            ElevatedButton(
-              onPressed: pressHandler,
-              child: const Text('Find things',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            ElevatedButton(
-              onPressed: pressHandler,
-              child: const Text('Watch my place',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
+            children: [
+              const SizedBox(height: 50.0),
+              _image('assets/icon_home_page.png', 120.0),
+              const SizedBox(height: 120.0),
+              _buildCard(),
+            ],
+          ),
+        )
     );
   }
 
-  void pressHandler() {
-    print('press!');
+  Widget _buildCard() {
+    return Expanded(
+        child: SizedBox(
+          child: Card(
+            child: Column(
+              children: [
+                _tile('Save (thing-place) pair', Colors.green[400]),
+                _tile('Find things', Colors.green[200]),
+                _tile('Watch my place', Colors.green[100]),
+              ],
+            ),
+          ),
+        )
+    );
+  }
+
+  Image _image(String file, double width) {
+    return Image(
+      image: AssetImage(file),
+      width: width,
+    );
+  }
+
+  Widget _tile(String title, Color? color) {
+    return Expanded(
+        child: ListTile(
+          title: Text(
+            title,
+            textAlign: TextAlign.center,
+          ),
+          tileColor: color,
+        )
+    );
   }
 }
+

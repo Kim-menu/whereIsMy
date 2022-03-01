@@ -8,7 +8,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Where Is My',
       theme: ThemeData(
-        primarySwatch: Colors.green
+        fontFamily: 'Nanum_Gothic_KR',
+        primarySwatch: Colors.green,
       ),
       home: MyHomePage(),
     );
@@ -27,26 +28,22 @@ class MyHomePage extends StatelessWidget {
         child: Column(
             children: [
               _imageBox(300.0, 'assets/icon_home_page.png', 170.0),
-              _buildCard(),
+              _buildMenu(),
             ],
           ),
         )
     );
   }
 
-  Widget _buildCard() {
+  Widget _buildMenu() {
     return Expanded(
-        child: SizedBox(
-          child: Card(
-            child: Column(
-              children: [
-                _tile('Save (thing-place) pair', Colors.green[400]),
-                _tile('Find things', Colors.green[200]),
-                _tile('Watch my place', Colors.green[100]),
-              ],
-            ),
-          ),
-        )
+      child: Column(
+        children: [
+          _tile('📃🧹📂', 'Save thing & place pair', Colors.lightGreen[600]),
+          _tile('🔍📃', 'Find things', Colors.green[400]),
+          _tile('🔍📂', 'Watch places', Colors.teal[400]),
+        ],
+      ),
     );
   }
 
@@ -62,15 +59,30 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  Widget _tile(String title, Color? color) {
+  Widget _tile(String title, String subtitle, Color? color) {
     return Expanded(
         child: ListTile(
-          title: Center(
-            child:
-            Text(
-              title,
-              textAlign: TextAlign.center,
-            ),
+          title: Column(
+            children: [
+              const SizedBox(height: 10.0),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 35,
+                ),
+              ),
+              const SizedBox(height: 10.0),
+              Text(
+                subtitle,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                ),
+              ),
+            ],
           ),
           tileColor: color,
         )

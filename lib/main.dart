@@ -26,12 +26,12 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-            children: [
-              _imageBox(300.0, 'assets/icon_home_page.png', 170.0),
-              _buildMenu(),
-            ],
-          ),
-        )
+          children: [
+            _imageBox(300.0, 'assets/icon_home_page.png', 170.0),
+            _buildMenu(),
+          ],
+        ),
+      )
     );
   }
 

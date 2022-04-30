@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:where_is_my/pages/SavePage.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,20 +29,20 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           children: [
             _imageBox(300.0, 'assets/icon_home_page.png', 170.0),
-            _buildMenu(),
+            _buildMenu(context),
           ],
         ),
       )
     );
   }
 
-  Widget _buildMenu() {
+  Widget _buildMenu(BuildContext context) {
     return Expanded(
       child: Column(
         children: [
-          _tile('📃🧹📂', 'Save thing & place pair', Colors.lightGreen[600]),
-          _tile('🔍📃', 'Find things', Colors.green[400]),
-          _tile('🔍📂', 'Watch places', Colors.teal[400]),
+          _tile(context, '📃🧹📂', 'Save things & place pair', Colors.lightGreen[600], SavePage()),
+          _tile(context, '🔍📃', 'Find things', Colors.green[400], MyHomePage()),
+          _tile(context, '🔍📂', 'Watch places', Colors.teal[400], MyHomePage()),
         ],
       ),
     );
@@ -59,7 +60,7 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  Widget _tile(String title, String subtitle, Color? color) {
+  Widget _tile(BuildContext context, String title, String subtitle, Color? color, StatelessWidget targetPage) {
     return Expanded(
         child: ListTile(
           title: Column(
@@ -85,6 +86,12 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
           tileColor: color,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => targetPage),
+            );
+          },
         )
     );
   }
